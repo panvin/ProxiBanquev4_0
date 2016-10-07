@@ -33,6 +33,7 @@ public class Lanceur {
 
 	
 	CompteEpargne compteE = new CompteEpargne("jij", 2158.4);
+
 	Client client1 = new Client ("Francis", "Dylan", "2 rue des champignons", "bdylan@gmail.com", null);
 	client1.setEpargne(compteE);
 	
