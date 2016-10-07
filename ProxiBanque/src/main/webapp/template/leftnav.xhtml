@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+	    <ui:composition>
+	
+			<h:form>  
+    			<p:growl id="messages" showDetail="false"/>
+     			<h3>Vous êtes connecté en tant que <h:outputText value="#{conseillerBean.prenom}" /> <h:outputText value="#{conseillerBean.nom}" /></h3>
+    			<p:menu>
+    			  <p:submenu label="Vos clients">
+            		<p:menuitem value="Créer" outcome="/creation" icon="ui-icon-disk" />
+            		<p:menuitem value="Voir" outcome="/selection" icon="ui-icon-search"/>
+            		<p:menuitem value="Editer" outcome="/edition" icon="ui-icon-arrowrefresh-1-w"/>
+            		<p:menuitem value="Effectuer un virement" outcome="/virement" icon="ui-icon-extlink"/>
+            		<p:menuitem value="Supprimer" outcome="/suppression" icon="ui-icon-close"/>
+            	  </p:submenu>
+            	  <p:submenu>
+            	    <p:menuitem value="Retour à l'accueil" outcome="/accueil" icon="ui-icon-home"/>
+            	  </p:submenu>
+    			</p:menu>
+			</h:form>
+	    </ui:composition>
+    </body>
+</html>
