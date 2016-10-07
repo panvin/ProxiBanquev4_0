@@ -7,10 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
+//@Entity
 @DiscriminatorValue("PERSONNE")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Personne {
 	
 	private String prenom;
@@ -38,10 +40,10 @@ public abstract class Personne {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+//	public Long getId() {
+//		return id;
+//	}
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 }
