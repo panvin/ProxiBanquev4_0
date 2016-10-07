@@ -9,6 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+/**
+ * Classe de la couche Domaine Permet de stocker et manipuler l'ensemble des
+ * éléments métieurs correspondant à un client de ProxiBanque
+ * 
+ * @author Sylvain CHAUVET
+ */
 @Entity
 @DiscriminatorValue("CLIENT")
 public class Client extends Personne {
@@ -28,6 +34,17 @@ public class Client extends Personne {
 	private Conseiller conseiller;
 	
 	
+	/**
+	 * Constructeur de la classe Client
+	 * @param idClient L'identifiant unique du client (int)
+	 * @param prenom Le Prenom du client (String).
+	 * @param nom Le Nom du client (String).
+	 * @param adresse L'adresse du client (String)
+	 * @param email L'email du client (String).
+	 * @param courant Le compte Courant correspondant au client (Objet COmpteCourant)
+	 * @param epargne Le compte Epargne correspondant au client (Objet CompteEpargne)
+	 * @param conseiller Le conseiller correspondant au client (Objet Conseiller)
+	 */
 	public Client(int idClient, String prenom, String nom, String adresse, String email, CompteCourant courant,
 			CompteEpargne epargne, Conseiller conseiller) {
 		super(prenom, nom);
@@ -38,6 +55,17 @@ public class Client extends Personne {
 		this.epargne = epargne;
 		this.conseiller = conseiller;
 	}
+	
+	/**
+	 * Constructeur de la classe Client 
+	 * @param prenom Le Prenom du client (String).
+	 * @param nom Le Nom du client (String).
+	 * @param adresse L'adresse du client (String)
+	 * @param email L'email du client (String).
+	 * @param courant Le compte Courant correspondant au client (Objet COmpteCourant)
+	 * @param epargne Le compte Epargne correspondant au client (Objet CompteEpargne)
+	 * @param conseiller Le conseiller correspondant au client (Objet Conseiller)
+	 */
 	public Client(String prenom, String nom, String adresse, String email, CompteCourant courant, CompteEpargne epargne,
 			Conseiller conseiller) {
 		super(prenom, nom);
@@ -47,6 +75,16 @@ public class Client extends Personne {
 		this.epargne = epargne;
 		this.conseiller = conseiller;
 	}
+	
+	/**
+	 * Constructeur de la classe Client
+	 * @param prenom Le Prenom du client (String).
+	 * @param nom Le Nom du client (String).
+	 * @param adresse L'adresse du client (String)
+	 * @param email L'email du client (String).
+	 * @param courant Le compte Courant correspondant au client (Objet COmpteCourant)
+	 * @param conseiller Le conseiller correspondant au client (Objet Conseiller)
+	 */
 	public Client(String prenom, String nom, String adresse, String email, CompteCourant courant,
 			Conseiller conseiller) {
 		super(prenom, nom);
@@ -55,6 +93,16 @@ public class Client extends Personne {
 		this.courant = courant;
 		this.conseiller = conseiller;
 	}
+	
+	/**
+	 * Constructeur de la classe Client
+	 * @param prenom Le Prenom du client (String).
+	 * @param nom Le Nom du client (String).
+	 * @param adresse L'adresse du client (String)
+	 * @param email L'email du client (String).
+	 * @param epargne Le compte Epargne correspondant au client (Objet CompteEpargne)
+	 * @param conseiller Le conseiller correspondant au client (Objet Conseiller)
+	 */
 	public Client(String prenom, String nom, String adresse, String email, CompteEpargne epargne,
 			Conseiller conseiller) {
 		super(prenom, nom);
@@ -63,20 +111,33 @@ public class Client extends Personne {
 		this.epargne = epargne;
 		this.conseiller = conseiller;
 	}
+	
+	/**
+	 * Constructeur de la classe Client
+	 * @param prenom Le Prenom du client (String).
+	 * @param nom Le Nom du client (String).
+	 * @param adresse L'adresse du client (String)
+	 * @param email L'email du client (String).
+	 * @param conseiller Le conseiller correspondant au client (Objet Conseiller)
+	 */
 	public Client(String prenom, String nom, String adresse, String email, Conseiller conseiller) {
 		super(prenom, nom);
 		this.adresse = adresse;
 		this.email = email;
 		this.conseiller = conseiller;
 	}
+	
+	/**
+	 * Constructeur par défault  
+	 */
 	public Client() {
 		super();
 	}
 	
-	
 	public int getIdClient() {
 		return idClient;
 	}
+	
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
@@ -110,6 +171,4 @@ public class Client extends Personne {
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
-	
-
 }
