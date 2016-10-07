@@ -13,16 +13,14 @@ import com.sbev.proxibanque.dao.IClientDao;
 
 /**
  * Classe Client service
- * Permet de gérer l'ensemble des opérations liées aux clients en base.
- * Cette classe a pour paramètre la Dao client.
+ * Permet de gerer l'ensemble des operations liees aux clients en base.
+ * Cette classe a pour parametre la Dao client.
  * @author Vincent PANOUILLERES
- *
  */
 @Service("clientService")
 public class ClientService {
 
 	@Autowired
-	//@Qualifier("clientDao")
 	private IClientDao clientDao;
 	
 	public IClientDao getClientDao() {
@@ -40,25 +38,25 @@ public class ClientService {
 	}
 	
 	/**
-	 * Méthode permettant de créer ou de modifier un client en base de données
-	 * @param client Le client que l'on souhaite stocker ou modifier en base de données (objet de type Client)
-	 * @return Le client qui a été sauvegardé ou modifié en base de données (objet de type Client)
+	 * Methode permettant de creer ou de modifier un client en base de donnees
+	 * @param client Le client que l'on souhaite stocker ou modifier en base de donnees (objet de type Client)
+	 * @return Le client qui a ete sauvegarde ou modifie en base de donnees (objet de type Client)
 	 */
 	public Client sauverClient(Client client){
 		return clientDao.saveAndFlush(client);
 	}
 	
 	/**
-	 * Méthode permettant de lire en client en conaissant son identifiant unique
+	 * Methode permettant de lire en client en conaissant son identifiant unique
 	 * @param id L'identifiant du Cient (int)
-	 * @return Le client correspondant à l'identifiant donné en paramètre
+	 * @return Le client correspondant a l'identifiant donne en parametre
 	 */
 	public Client lireClient(int id){
 		return clientDao.findByIdClient(id);
 	}
 	
 	/**
-	 * Méthode permettant de lire l'ensemble des clients en base
+	 * Methode permettant de lire l'ensemble des clients en base
 	 * @return La liste de tous les clients de ProxiBanque (objet de type List Client)
 	 */
 	public List<Client> lireToutClient(){
@@ -66,7 +64,7 @@ public class ClientService {
 	}
 	
 	/**
-	 * Méthode permettant de supprimer un client
+	 * Methode permettant de supprimer un client
 	 * @param client Le client qu'on souhaite supprimer
 	 */
 	public void supprimerClient(Client client){
@@ -74,8 +72,8 @@ public class ClientService {
 	}
 	
 	/** 
-	 * Méthode pour récupérer les clients par conseiller
-	 * @param conseiller Le conseiller auquel sont rattachés les clients recherchés (objet de type Conseiller)
+	 * Methode pour recuperer les clients par conseiller
+	 * @param conseiller Le conseiller auquel sont rattaches les clients recherches (objet de type Conseiller)
 	 * @return Une liste de client (objet de type List Client) 
 	 */
 	public List<Client> lireClientParConseiller(Conseiller conseiller){

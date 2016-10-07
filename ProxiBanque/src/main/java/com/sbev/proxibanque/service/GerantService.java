@@ -8,10 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.sbev.proxibanque.dao.IGerantDao;
 import com.sbev.proxibanque.dao.IVirementDao;
-import com.sbev.proxibanque.domaine.Conseiller;
 import com.sbev.proxibanque.domaine.Gerant;
 import com.sbev.proxibanque.domaine.Virement;
 
+/**
+ * Classe permettant d'effectuer le traitement metier relatif a la classe Gerant
+ * @author Sylvain Chauvet
+ */
 @Service("gerantService")
 public class GerantService {
 	
@@ -40,9 +43,9 @@ public class GerantService {
 	}
 	
 	/**
-	 * Permet de créer ou modifier un Gerant en base de données.
-	 * @param gerant Le Gerant à créer ou modifier
-	 * @return Le Gerant créé ou modifié
+	 * Permet de creer ou modifier un Gerant en base de donnees.
+	 * @param gerant Le Gerant a creer ou modifier
+	 * @return Le Gerant cree ou modifie
 	 */
 	public Gerant sauverGerant(Gerant gerant) {
 		return gerantDao.saveAndFlush(gerant);
@@ -66,8 +69,8 @@ public class GerantService {
 	}
 	
 	/**
-	 * Permet de supprimer un Gerant de la base de données
-	 * @param gerant Le Gerant à supprimer
+	 * Permet de supprimer un Gerant de la base de donnees
+	 * @param gerant Le Gerant a supprimer
 	 */
 	public void supprimerGerant(Gerant gerant){
 		gerantDao.delete(gerant);

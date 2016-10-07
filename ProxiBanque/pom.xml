@@ -429,26 +429,18 @@
 			<artifactId>spring-data-jpa</artifactId>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
 		</dependency>
 		<dependency>
-=======
->>>>>>> b3b81ae3fe368ec87b1b79872fe29b96b3efa594
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>6.0</version>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>all-themes</artifactId>
 			<version>1.0.8</version>
-=======
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-dbcp2</artifactId>
->>>>>>> b3b81ae3fe368ec87b1b79872fe29b96b3efa594
 		</dependency>
 	</dependencies>
 	<build>

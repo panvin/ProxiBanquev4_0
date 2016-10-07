@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import com.sbev.proxibanque.dao.IConseillerDao;
 import com.sbev.proxibanque.domaine.Conseiller;
 
+/**
+ * Classe permettant d'effectuer le traitement metier relatif a la classe Conseiller
+ * @author Sylvain Chauvet
+ */
 @Service("conseillerService")
 public class ConseillerService {
 	
@@ -27,9 +31,9 @@ public class ConseillerService {
 	}
 	
 	/**
-	 * Permet de créer ou modifier un Conseiller en base de données.
-	 * @param conseiller Le Conseiller à créer ou modifier
-	 * @return Le Conseiller créé ou modifié
+	 * Permet de creer ou modifier un Conseiller en base de donnees.
+	 * @param conseiller Le Conseiller a creer ou modifier
+	 * @return Le Conseiller cree ou modifie
 	 */
 	public Conseiller sauverConseiller(Conseiller conseiller) {
 		return conseillerDao.saveAndFlush(conseiller);
@@ -37,7 +41,7 @@ public class ConseillerService {
 	
 	/**
 	 * Permet d'obtenir un Conseiller avec son ID
-	 * @param id ID du Conseiller à obtenir
+	 * @param id ID du Conseiller a obtenir
 	 * @return Le Conseiller
 	 */
 	public Conseiller lireConseiller(int id){
@@ -53,8 +57,8 @@ public class ConseillerService {
 	}
 	
 	/**
-	 * Permet de supprimer un Conseiller de la base de données
-	 * @param conseiller Le Conseiller à supprimer
+	 * Permet de supprimer un Conseiller de la base de donnees
+	 * @param conseiller Le Conseiller a supprimer
 	 */
 	public void supprimerConseiller(Conseiller conseiller){
 		conseillerDao.delete(conseiller);

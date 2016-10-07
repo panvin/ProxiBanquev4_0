@@ -13,6 +13,10 @@ import com.sbev.proxibanque.dao.IVirementDao;
 import com.sbev.proxibanque.domaine.Compte;
 import com.sbev.proxibanque.domaine.Virement;
 
+/**
+ * Classe permettant d'effectuer le traitement metier relatif a la classe Compte
+ * @author Sylvain Chauvet
+ */
 @Service("compteService")
 public class CompteService {
 	
@@ -40,9 +44,9 @@ public class CompteService {
 	}
 	
 	/**
-	 * Permet de créer ou modifier un Compte en base de données.
-	 * @param compte Le Compte à créer ou modifier
-	 * @return Le Compte créé ou modifié
+	 * Permet de creer ou modifier un Compte en base de donnees.
+	 * @param compte Le Compte a creer ou modifier
+	 * @return Le Compte cree ou modifie
 	 */
 	public Compte sauverCompte(Compte compte) {
 		return compteDao.saveAndFlush(compte);
@@ -50,7 +54,7 @@ public class CompteService {
 	
 	/**
 	 * Permet d'obtenir un Compte avec son ID
-	 * @param id ID du Compte à obtenir
+	 * @param id ID du Compte a obtenir
 	 * @return Le Compte
 	 */
 	public Compte lireCompte(int id){
@@ -66,17 +70,17 @@ public class CompteService {
 	}
 	
 	/**
-	 * Permet de supprimer un Compte de la base de données
-	 * @param compte Le Compte à supprimer
+	 * Permet de supprimer un Compte de la base de donnees
+	 * @param compte Le Compte a supprimer
 	 */
 	public void supprimerCompte(Compte compte){
 		compteDao.delete(compte);
 	}
 	
 	/**
-	 * Permet d'effectuer un Virement de Compte à Compte et de sauvegarder ce Virement en base de données
-	 * @param idCompteD ID du Compte débiteur
-	 * @param idCompteC ID du Compte créditeur
+	 * Permet d'effectuer un Virement de Compte a Compte et de sauvegarder ce Virement en base de donnees
+	 * @param idCompteD ID du Compte debiteur
+	 * @param idCompteC ID du Compte crediteur
 	 * @param montant Montant de la transaction
 	 */
 	@Transactional
