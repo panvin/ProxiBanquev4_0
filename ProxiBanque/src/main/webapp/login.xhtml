@@ -12,13 +12,13 @@
 
 <h:body>
 	<!-- Ajout du header uniquement (pas du layout complet) -->
-	<!-- <div id="header> -->
-<!-- 	<ui:insert name="header"> -->
-<!-- 		<ui:include src="/template/header.xhtml"> -->
-<!-- 		</ui:include> -->
-<!-- 	</ui:insert> -->
-	<!-- </div> -->
-	
+	<div id="header">
+	<ui:insert name="header">
+		<ui:include src="/template/header.xhtml">
+		</ui:include>
+		</ui:insert>
+	</div>
+
 	<center>
 		<p:panel header="Connexion" style="width: 250;">
 			<form method="post" action="j_security_check">
