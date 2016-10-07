@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition>
+		<h:form>
+			<p:growl id="messages" />
+
+			<p:menubar>
+				<p:menuitem value="Clients" icon="ui-icon-person" outcome="/clients">
+				</p:menuitem>
+
+				<p:menuitem value="Nouveau client" icon="ui-icon-pencil"
+					outcome="/nouveau">
+				</p:menuitem>
+
+				<p:menuitem value="Virement" icon="ui-icon-refresh"
+					outcome="/virement">
+				</p:menuitem>
+
+				<p:menuitem value="Conseillers" icon="ui-icon-contact"
+					outcome="/conseillers">
+				</p:menuitem>
+
+				<p:menuitem value="Historique des transactions"
+					icon="ui-icon-chart-bar" outcome="/transactions">
+				</p:menuitem>
+
+				<p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+			</p:menubar>
+		</h:form>
+	</ui:composition>
+</body>
+</html>
