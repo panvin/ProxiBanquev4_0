@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+
+<h:body>
+	<!-- Declaration du template dont la page est cliente -->
+	<ui:composition template="/template/layout.xhtml">
+		<!-- redéfinition de la zone content du layout -->
+		<ui:define name="content">
+			<center>
+				<h:form>
+					<div class="row">
+						<div class="col-md-6">
+							<p:panel id="compteDeb" header="Client débiteur"
+								style="width: 350;">
+								<p:panelGrid columns="2" cellpading="2" id="compteDeb">
+									<h:outputText value="Numéro de compte : *" />
+									<p:inputText value="#{idcomptedeb}" required="true"
+										label="numCompteDeb" />
+									<p:commandButton value="Afficher client" id="ajax"
+										update="displayDeb" />
+									<h:outputText value="Nom : " />
+									<p:inputText id="displayDeb"
+										value="#{idcomptedeb.compte.titulaire.getNom}" disabled="true" />
+									<h:outputText value="Prénom : " />
+									<p:inputText id="displayDeb"
+										value="#{idcomptedeb.compte.titulaire.getPrenom}"
+										disabled="true" />
+									<h:outputText value="Solde : " />
+									<p:inputText id="displayDeb"
+										value="#{idcomptedeb.compte.getSolde}" disabled="true" />
+								</p:panelGrid>
+							</p:panel>
+						</div>
+						<div class="col-md-6">
+							<p:panel id="compteCred" header="Client créditeur"
+								style="width: 350;">
+								<p:panelGrid columns="2" cellpading="2" id="compteCred">
+									<h:outputText value="Numéro de compte : *" />
+									<p:inputText value="#{idcomptecred}" required="true"
+										label="numCompteCred" />
+									<p:commandButton value="Afficher client" id="ajax"
+										update="displayCred" />
+									<h:outputText value="Nom : " />
+									<p:inputText id="displayCred"
+										value="#{idcomptecred.compte.titulaire.getNom}"
+										disabled="true" />
+									<h:outputText value="Prénom : " />
+									<p:inputText id="displayCred"
+										value="#{idcomptecred.compte.titulaire.getPrenom}"
+										disabled="true" />
+									<h:outputText value="Solde : " />
+									<p:inputText id="displayCred"
+										value="#{idcomptecred.compte.getSolde}" disabled="true" />
+								</p:panelGrid>
+							</p:panel>
+						</div>
+					</div>
+					<div>
+						<h:outputText value="Montant : *" />
+						<p:inputText value="#{montant}" required="true" label="montant" />
+						<p:growl id="growl" life="20" />
+						<p:commandButton value="Transférer" id="virement" update="growl"
+							actionListener="#{buttonView.buttonAction}" action="virement" />
+					</div>
+				</h:form>
+			</center>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

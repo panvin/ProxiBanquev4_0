@@ -1,31 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="WebApp_ID" version="3.0">
-	<display-name>Jsf2ObjisFormation</display-name>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-	<!-- 1. Page d'accueil -->
+	<display-name>ProxiBanqueV4</display-name>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	
-	<!-- 2. Mapping URLS /faces/* vers la servlet JSF Faces Servlet -->
+
+
+
+	<!-- CONFIG DispatcherServlet -->
+
 	<servlet>
-		<servlet-name>Faces Servlet</servlet-name>
-		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<servlet-name>proxibanque</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/faces/*</url-pattern>
+		<servlet-name>proxibanque</servlet-name>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
-	<!-- 3. Exécution JSF en mode 'développement'. logs supplémentaires. -->
+	<!-- CONFIG Chargeur de contexte (ContextLoader) -->
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
 	<context-param>
-		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Development</param-value>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/classes/data.xml
+			/WEB-INF/classes/service.xml 
+			/WEB-INF/classes/servlet.xml
+		</param-value>
+
 	</context-param>
+
+	<!-- TODO : ajouter les configurations JAAS -->
+	<!-- Declaration Datasource -->
+	<resource-ref>
+		<description>DB Connection</description>
+		<res-ref-name>jdbc/proxibanquev4</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+	<!-- Define a Security Constraint on this Application -->
+	<!-- NOTE: None of these roles are present in the default users file -->
+	<security-constraint>
+		<display-name>Authentification</display-name>
+		<!-- Liste des pages protégées -->
+		<web-resource-collection>
+			<web-resource-name>Page sécurisée</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<!-- Role des utilisateurs ayant le droit d'y accéder -->
+		<auth-constraint>
+			<role-name>conseiller</role-name>
+			<role-name>gerant</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<!-- Define the Login Configuration for this Application -->
+	<login-config>
+		<!-- <auth-method>FORM</auth-method> -->
+		<auth-method>FORM</auth-method>
+		<realm-name>Form authentification</realm-name>
+		<form-login-config>
+			<form-login-page>/login.xhtml</form-login-page>
+			<form-error-page>/loginerror.xhtml</form-error-page>
+		</form-login-config>
+	</login-config>
+	<!-- Roles utilisés dans l'application -->
+	<security-role>
+		<description>Conseiller</description>
+		<role-name>conseiller</role-name>
+	</security-role>
+	<security-role>
+		<description>Gérant</description>
+		<role-name>gerant</role-name>
+	</security-role>
+
 
 </web-app>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<body>
+
+	<ui:composition template="/template/layout.xhtml">
+		<!-- redéfinition de la zone content du layout -->
+		<ui:define name="content">
+			<center>
+			<p:panel id="transactions" header="Historique des transactions"
+					style="width: 700;">
+				<h:form>
+					<p:growl id="growl" showDetail="true" />
+
+					<h:panelGrid columns="2" columnClasses="left,right"
+						style="width:100%">				
+
+						<p:chart type="bar" model="#{chartView.barModel}"
+							style="width:400px;height:300px">
+							<p:ajax event="itemSelect" listener="#{chartView.itemSelect}"
+								update="growl" />
+						</p:chart>
+					</h:panelGrid>
+
+				</h:form>
+			</center>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

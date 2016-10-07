@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<body>
+
+	<ui:composition template="/template/layout.xhtml">
+		<!-- redéfinition de la zone content du layout -->
+		<ui:define name="content">
+			<center>
+				<p:panel id="usercreateclient" header="Créer un client"
+					style="width: 700;">
+					<h:panelGrid columns="2" cellpadding="2" id="userCreateForm"
+						border="0">
+						<h:outputLabel for="#{client.nom}" value="Nom" />
+						<h:inputText value="#{client.nom}" style="width: 100;"
+							editable="true"></h:inputText>
+
+						<h:outputLabel for="#{client.prenom}" value="Prenom" />
+						<h:inputText value="#{client.prenom}" editable="true"></h:inputText>
+
+						<h:outputLabel for="#{client.email}" value="Email" />
+						<h:inputText value="#{client.email}" editable="true"></h:inputText>
+
+						<h:outputLabel for="#{client.adresse}" value="Adresse" />
+						<h:inputText value="#{client.adresse}" editable="true"></h:inputText>
+
+						<h:outputLabel for="#{client.soldeCourant}"
+							value="Solde compte courant" />
+						<h:inputText value="#{client.soldeCourant}" editable="true"></h:inputText>
+
+						<h:outputLabel for="#{client.soldeEpargne}"
+							value="Solde compte épargne" />
+						<h:inputText value="#{client.soldeEpargne}" editable="true"></h:inputText>
+
+						<h:outputText value="Voulez-vous un compte courant?" />
+						<p:selectBooleanButton id="value1"
+							value="#{selectBooleanView.value1}" onLabel="Yes" offLabel="No"
+							style="width:60px" />
+
+						<h:outputText value="Voulez-vous un compte épargne?" />
+						<p:selectBooleanButton id="value2"
+							value="#{selectBooleanView.value2}" onLabel="Yes" offLabel="No"
+							onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px" />
+
+							<h:commandButton type="submit" value="Ajouter"
+								action="#{client.create()}" />
+					</h:panelGrid>
+				</p:panel>
+			</center>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
